@@ -1,0 +1,18 @@
+$breakpoints: (
+  "phone": "22.5em",
+  //360px
+  "tablet": "48em",
+  //768px
+  "SDesktop": "64em",
+  //1024px
+  "MDesktop": "85em",
+  //1360px
+  "LDesktop": "120em",
+  //1920px
+);
+
+@mixin breakpoint($size, $conv: 16) {
+  @media only screen and (max-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
