@@ -28,7 +28,12 @@
   <body>
     <nav>
       <div class="nav-left">
-        <img src="./images/logo.svg" alt="Sneakers Logo" class="logo" />
+        <h1 class="nav-left__title">Sneakers</h1>
+        <img
+          src="./images/logo.svg"
+          alt="Sneakers Logo"
+          class="nav-left__logo"
+        />
         <ul class="nav-links">
           <li><a href="#">Collections</a></li>
           <li><a href="#">Men</a></li>
@@ -39,12 +44,59 @@
       </div>
 
       <div class="nav-right">
-        <div class="nav__shopping-cart">
-          <img
-            src="./images/icon-cart.svg"
-            alt=""
-            class="nav__shopping-cart__icon"
-          />
+        <div class="nav__cart">
+          <img src="./images/icon-cart.svg" alt="" class="nav__cart__icon" />
+          <div class="nav__cart__popup">
+            <div class="nav__cart__popup__title">
+              <h2>Cart</h2>
+            </div>
+            <div class="nav__cart__popup__content">
+              <ul class="nav__cart__popup__content__list">
+                <li class="nav__cart__popup__content__list__item">
+                  <form action="" id="cart__item">
+                    <img
+                      src="./images/image-product-1-thumbnail.jpg"
+                      alt="Product Thumbnail"
+                      class="nav__cart__popup__content__list__item__image"
+                    />
+                    <div class="nav__cart__popup__content__list__item__desc">
+                      <h3
+                        class="nav__cart__popup__content__list__item__desc__name"
+                      >
+                        Fall Limited Edition Sneakers
+                      </h3>
+                      <div
+                        class="nav__cart__popup__content__list__item__desc__total"
+                      >
+                        <span
+                          class="nav__cart__popup__content__list__item__desc__total__price"
+                        >
+                          $125.00 x 3
+                        </span>
+                        <span
+                          class="nav__cart__popup__content__list__item__desc__total__sum"
+                        >
+                          $375.00
+                        </span>
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      data-item="1"
+                      class="nav__cart__popup__content__list__item__del"
+                      id="cart__item__del"
+                    >
+                      <img src="./images/icon-delete.svg" alt="" />
+                    </button>
+                  </form>
+                </li>
+              </ul>
+              <a href="#" class="nav__cart__popup__content__checkout"
+                >Checkout</a
+              >
+            </div>
+          </div>
         </div>
         <a href="#" class="nav__profile">
           <img src="./images/image-avatar.png" alt="User Profile Picture" />
