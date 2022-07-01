@@ -1,3 +1,5 @@
+@use "../utils/breakpoints.scss" as *;
+
 * {
   margin: 0;
   padding: 0;
@@ -10,5 +12,7 @@ html {
 
 body {
   padding: 0 10vw;
-  background: var(--light);
+  @include breakpoint(tablet) {
+    padding: 0;
+  }
 }

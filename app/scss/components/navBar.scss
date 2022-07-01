@@ -1,3 +1,5 @@
+@use "../utils/breakpoints.scss" as *;
+
 nav {
   position: relative;
   width: 100%;
@@ -6,6 +8,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include breakpoint(tablet) {
+    height: 10vh;
+    padding: 0 6%;
+  }
 }
 
 .nav-left {
@@ -14,9 +21,43 @@ nav {
   align-items: center;
   gap: 3vw;
 
+  @include breakpoint(tablet) {
+    gap: 6vw;
+  }
+
+  &-m__menu {
+    display: none;
+
+    @include breakpoint(tablet) {
+      display: block;
+    }
+  }
+
   &__title {
     position: absolute;
     left: -1000px;
+  }
+
+  &__logo {
+    cursor: pointer;
+  }
+
+  &__overlay {
+    display: none;
+
+    @include breakpoint(tablet) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: block;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      transition: all 250ms ease-in-out;
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 }
 
@@ -28,9 +69,31 @@ nav {
   list-style: none;
   gap: 2vw;
 
+  @include breakpoint(tablet) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    padding: 4vh 6%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3.25vh;
+    background: var(--light);
+    z-index: 2;
+    transition: all 250ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+  }
+
   & li {
     width: fit-content;
     height: 100%;
+    @include breakpoint(tablet) {
+      width: 100%;
+      height: auto;
+    }
 
     & a {
       position: relative;
@@ -43,9 +106,17 @@ nav {
       justify-content: center;
       align-items: center;
 
+      @include breakpoint(tablet) {
+        justify-content: flex-start;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--darkBlue);
+      }
+
       &:hover {
         color: var(--darkBlue);
       }
+
       &:after {
         content: "";
         position: absolute;
@@ -56,6 +127,14 @@ nav {
         background: var(--orange);
         transition: opacity 150ms ease-in-out;
         opacity: 0;
+
+        @include breakpoint(tablet) {
+          top: 0;
+          left: auto;
+          right: 0;
+          width: 0.25rem;
+          height: 100%;
+        }
       }
 
       &:hover:after {
@@ -63,12 +142,26 @@ nav {
       }
     }
   }
+
+  &-m__close {
+    display: none;
+
+    @include breakpoint(tablet) {
+      display: block;
+      margin-bottom: 4vh;
+    }
+  }
 }
 
 .nav-right {
+  height: 6vh;
   display: flex;
   align-items: center;
   gap: 3vw;
+
+  @include breakpoint(tablet) {
+    gap: 6vw;
+  }
 }
 
 .nav__cart {
@@ -76,31 +169,53 @@ nav {
   height: 2.5vh;
   cursor: pointer;
 
-  &__icon {
-    height: 100%;
+  @include breakpoint(tablet) {
+    position: static;
+    height: 3vh;
   }
 
-  &:after {
-    content: "3";
-    position: absolute;
-    top: -0.6vh;
-    right: -0.5rem;
-    width: 1rem;
-    height: 1vw;
-    font-size: 0.5rem;
-    font-family: var(--font-family);
-    font-weight: 700;
-    border-radius: 40%;
-    color: var(--light);
-    background: var(--orange);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__button {
+    position: relative;
+    height: 100%;
+
+    &__icon {
+      height: 100%;
+    }
+
+    &:after {
+      content: "3";
+      position: absolute;
+      top: -0.6vh;
+      right: -0.5rem;
+      width: 1rem;
+      height: 1vw;
+      font-size: 0.5rem;
+      font-family: var(--font-family);
+      font-weight: 700;
+      border-radius: 40%;
+      color: var(--light);
+      background: var(--orange);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include breakpoint(tablet) {
+        width: 1.15rem;
+        height: 0.7rem;
+        font-size: 0.55rem;
+        border-radius: 35%;
+      }
+    }
+  }
+
+  &:hover &__popup {
+    visibility: visible;
+    opacity: 1;
   }
 }
 
 .nav__profile {
-  height: 6vh;
+  height: 100%;
 
   img {
     height: 100%;
@@ -111,5 +226,12 @@ nav {
     &:hover {
       border: 2px solid var(--orange);
     }
+  }
+}
+
+.nav-show {
+  @include breakpoint(tablet) {
+    visibility: visible;
+    opacity: 1;
   }
 }

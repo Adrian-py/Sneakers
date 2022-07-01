@@ -7,6 +7,12 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+@media only screen and (max-width: 48em) {
+  nav {
+    height: 10vh;
+    padding: 0 6%;
+  }
+}
 
 .nav-left {
   height: 100%;
@@ -14,9 +20,43 @@ nav {
   align-items: center;
   gap: 3vw;
 }
+@media only screen and (max-width: 48em) {
+  .nav-left {
+    gap: 6vw;
+  }
+}
+.nav-left-m__menu {
+  display: none;
+}
+@media only screen and (max-width: 48em) {
+  .nav-left-m__menu {
+    display: block;
+  }
+}
 .nav-left__title {
   position: absolute;
   left: -1000px;
+}
+.nav-left__logo {
+  cursor: pointer;
+}
+.nav-left__overlay {
+  display: none;
+}
+@media only screen and (max-width: 48em) {
+  .nav-left__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: all 250ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 .nav-links {
@@ -27,9 +67,34 @@ nav {
   list-style: none;
   gap: 2vw;
 }
+@media only screen and (max-width: 48em) {
+  .nav-links {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    padding: 4vh 6%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3.25vh;
+    background: var(--light);
+    z-index: 2;
+    transition: all 250ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
 .nav-links li {
   width: fit-content;
   height: 100%;
+}
+@media only screen and (max-width: 48em) {
+  .nav-links li {
+    width: 100%;
+    height: auto;
+  }
 }
 .nav-links li a {
   position: relative;
@@ -41,6 +106,14 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media only screen and (max-width: 48em) {
+  .nav-links li a {
+    justify-content: flex-start;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkBlue);
+  }
 }
 .nav-links li a:hover {
   color: var(--darkBlue);
@@ -56,14 +129,38 @@ nav {
   transition: opacity 150ms ease-in-out;
   opacity: 0;
 }
+@media only screen and (max-width: 48em) {
+  .nav-links li a:after {
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 0.25rem;
+    height: 100%;
+  }
+}
 .nav-links li a:hover:after {
   opacity: 1;
 }
+.nav-links-m__close {
+  display: none;
+}
+@media only screen and (max-width: 48em) {
+  .nav-links-m__close {
+    display: block;
+    margin-bottom: 4vh;
+  }
+}
 
 .nav-right {
+  height: 6vh;
   display: flex;
   align-items: center;
   gap: 3vw;
+}
+@media only screen and (max-width: 48em) {
+  .nav-right {
+    gap: 6vw;
+  }
 }
 
 .nav__cart {
@@ -71,10 +168,20 @@ nav {
   height: 2.5vh;
   cursor: pointer;
 }
-.nav__cart__icon {
+@media only screen and (max-width: 48em) {
+  .nav__cart {
+    position: static;
+    height: 3vh;
+  }
+}
+.nav__cart__button {
+  position: relative;
   height: 100%;
 }
-.nav__cart:after {
+.nav__cart__button__icon {
+  height: 100%;
+}
+.nav__cart__button:after {
   content: "3";
   position: absolute;
   top: -0.6vh;
@@ -91,9 +198,21 @@ nav {
   justify-content: center;
   align-items: center;
 }
+@media only screen and (max-width: 48em) {
+  .nav__cart__button:after {
+    width: 1.15rem;
+    height: 0.7rem;
+    font-size: 0.55rem;
+    border-radius: 35%;
+  }
+}
+.nav__cart:hover .nav__cart__popup {
+  visibility: visible;
+  opacity: 1;
+}
 
 .nav__profile {
-  height: 6vh;
+  height: 100%;
 }
 .nav__profile img {
   height: 100%;
@@ -105,9 +224,16 @@ nav {
   border: 2px solid var(--orange);
 }
 
+@media only screen and (max-width: 48em) {
+  .nav-show {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 .nav__cart__popup {
   position: absolute;
-  top: 250%;
+  top: 100%;
   left: 50%;
   width: 28vw;
   height: fit-content;
@@ -115,8 +241,18 @@ nav {
   transform: translateX(-50%);
   background: var(--light);
   border-radius: 5px;
-  box-shadow: -12px 13px 34px 0px rgba(29, 32, 37, 0.41);
+  box-shadow: -12px 13px 34px 0px rgba(29, 32, 37, 0.1);
   cursor: auto;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 250ms ease-in-out;
+}
+@media only screen and (max-width: 48em) {
+  .nav__cart__popup {
+    position: fixed;
+    top: 11vh;
+    width: 95%;
+  }
 }
 .nav__cart__popup__title {
   width: 100%;
@@ -128,12 +264,13 @@ nav {
   font-size: 1rem;
 }
 .nav__cart__popup__content {
+  min-height: 18vh;
   padding: 2vh 6% 4vh 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  gap: 2vh;
+  gap: 3.5vh;
 }
 .nav__cart__popup__content__list {
   width: 100%;
@@ -143,7 +280,7 @@ nav {
 .nav__cart__popup__content__list__item {
   position: relative;
   width: 100%;
-  height: 7.5vh;
+  height: 6vh;
 }
 .nav__cart__popup__content__list__item form {
   width: 100%;
@@ -155,19 +292,47 @@ nav {
 }
 .nav__cart__popup__content__list__item__image {
   height: 100%;
+  border-radius: 5px;
 }
 .nav__cart__popup__content__list__item__desc {
-  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+  font-size: 0.8rem;
+  color: var(--grayBlue);
 }
 .nav__cart__popup__content__list__item__desc__name {
   font-weight: 400;
-  color: var(--grayBlue);
+}
+.nav__cart__popup__content__list__item__desc__total {
+  font-size: 0.9rem;
+}
+.nav__cart__popup__content__list__item__desc__total__sum {
+  font-weight: 700;
+  color: var(--darkBlue);
 }
 .nav__cart__popup__content__list__item__del {
   position: absolute;
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+.nav__cart__popup__content__checkout {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--light);
+  border-radius: 10px;
+  background: var(--orange);
 }
 
 :root {
@@ -197,7 +362,11 @@ html {
 
 body {
   padding: 0 10vw;
-  background: var(--light);
+}
+@media only screen and (max-width: 48em) {
+  body {
+    padding: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

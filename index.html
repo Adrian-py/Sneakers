@@ -30,22 +30,43 @@
       <div class="nav-left">
         <h1 class="nav-left__title">Sneakers</h1>
         <img
+          src="./images/icon-menu.svg"
+          alt=""
+          class="nav-left-m__menu"
+          id="nav-menu"
+        />
+        <img
           src="./images/logo.svg"
           alt="Sneakers Logo"
           class="nav-left__logo"
         />
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <img
+              src="./images/icon-close.svg"
+              alt=""
+              class="nav-links-m__close"
+              id="nav-close"
+            />
+          </li>
           <li><a href="#">Collections</a></li>
           <li><a href="#">Men</a></li>
           <li><a href="#">Women</a></li>
           <li><a href="#">About</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
+        <div class="nav-left__overlay" id="nav-overlay"></div>
       </div>
 
       <div class="nav-right">
         <div class="nav__cart">
-          <img src="./images/icon-cart.svg" alt="" class="nav__cart__icon" />
+          <div class="nav__cart__button">
+            <img
+              src="./images/icon-cart.svg"
+              alt=""
+              class="nav__cart__button__icon"
+            />
+          </div>
           <div class="nav__cart__popup">
             <div class="nav__cart__popup__title">
               <h2>Cart</h2>
@@ -108,5 +129,6 @@
     Featuring a durable rubber outer sole, they’ll withstand everything the
     weather can offer. $125.00 50% $250.00 0 Add to cart -->
   </body>
+  <script src="./app/js/navBar.js"></script>
   <script src="./app/js/script.js"></script>
 </html>
