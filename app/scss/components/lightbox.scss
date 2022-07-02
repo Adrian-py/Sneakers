@@ -1,0 +1,132 @@
+.lightbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+
+  &__content {
+    position: relative;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+    z-index: 1;
+
+    &__close-container {
+      position: absolute;
+      top: -4vh;
+      right: 0;
+      cursor: pointer;
+
+      &__close {
+        fill: var(--light);
+        transition: all 150ms ease-in-out;
+      }
+
+      &:hover > path {
+        fill: var(--orange);
+      }
+    }
+
+    &__current-container {
+      position: relative;
+      width: 100%;
+
+      &__current {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      & button {
+        position: absolute;
+        top: 50%;
+        width: 7vh;
+        aspect-ratio: 1/1;
+        outline: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--light);
+        border-radius: 50%;
+        cursor: pointer;
+
+        &:hover > svg > path {
+          transition: all 150ms ease-in-out;
+          stroke: var(--orange);
+        }
+      }
+
+      &__prev {
+        left: 0;
+        transform: translate(-50%, -50%);
+      }
+
+      &__next {
+        right: 0;
+        transform: translate(50%, -50%);
+      }
+    }
+
+    &__thumbnails {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 2vw;
+
+      &__pic-container {
+        position: relative;
+        width: 18%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__pic {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          cursor: pointer;
+
+          &__chosen {
+            border: 3px solid var(--orange);
+          }
+        }
+
+        &__overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          background: hsl(0, 0%, 100%, 0.5);
+          transition: all 150ms ease-in-out;
+          visibility: hidden;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        &:hover > div {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: hsl(0, 0%, 0%, 0.65);
+  }
+}

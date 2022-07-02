@@ -361,14 +361,22 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.pictures__thumbnails__pic {
+.pictures__thumbnails__pic-container {
   width: 20%;
-  border-radius: 10px;
   cursor: pointer;
 }
-.pictures__thumbnails__pic__chosen {
+.pictures__thumbnails__pic-container__pic {
+  width: 100%;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  transition: all 150ms ease-in-out;
+}
+.pictures__thumbnails__pic-container__pic:hover {
+  opacity: 0.6;
+}
+.pictures__thumbnails__pic-container__chosen {
   border: 3px solid var(--orange);
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .product {
@@ -450,7 +458,7 @@ main {
   transition: all 150ms ease-in-out;
 }
 .product__add__amount__button:hover {
-  opacity: 0.75;
+  opacity: 0.65;
 }
 .product__add__button {
   width: 65%;
@@ -475,6 +483,122 @@ main {
 }
 .product__add__button:hover {
   opacity: 0.75;
+}
+
+.lightbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+}
+.lightbox__content {
+  position: relative;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+  z-index: 1;
+}
+.lightbox__content__close-container {
+  position: absolute;
+  top: -4vh;
+  right: 0;
+  cursor: pointer;
+}
+.lightbox__content__close-container__close {
+  fill: var(--light);
+  transition: all 150ms ease-in-out;
+}
+.lightbox__content__close-container:hover > path {
+  fill: var(--orange);
+}
+.lightbox__content__current-container {
+  position: relative;
+  width: 100%;
+}
+.lightbox__content__current-container__current {
+  width: 100%;
+  border-radius: 10px;
+}
+.lightbox__content__current-container button {
+  position: absolute;
+  top: 50%;
+  width: 7vh;
+  aspect-ratio: 1/1;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--light);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.lightbox__content__current-container button:hover > svg > path {
+  transition: all 150ms ease-in-out;
+  stroke: var(--orange);
+}
+.lightbox__content__current-container__prev {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+.lightbox__content__current-container__next {
+  right: 0;
+  transform: translate(50%, -50%);
+}
+.lightbox__content__thumbnails {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+}
+.lightbox__content__thumbnails__pic-container {
+  position: relative;
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lightbox__content__thumbnails__pic-container__pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.lightbox__content__thumbnails__pic-container__pic__chosen {
+  border: 3px solid var(--orange);
+}
+.lightbox__content__thumbnails__pic-container__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 150ms ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+}
+.lightbox__content__thumbnails__pic-container:hover > div {
+  visibility: visible;
+  opacity: 1;
+}
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
 }
 
 :root {
@@ -513,6 +637,11 @@ body {
   body {
     padding: 0;
   }
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

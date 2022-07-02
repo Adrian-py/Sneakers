@@ -25,14 +25,24 @@ main {
     display: flex;
     justify-content: space-between;
 
-    &__pic {
+    &__pic-container {
       width: 20%;
-      border-radius: 10px;
       cursor: pointer;
+
+      &__pic {
+        width: 100%;
+        border: 3px solid transparent;
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
 
       &__chosen {
         border: 3px solid var(--orange);
-        opacity: 0.5;
+        opacity: 0.6;
       }
     }
   }
@@ -125,7 +135,7 @@ main {
         transition: all 150ms ease-in-out;
 
         &:hover {
-          opacity: 0.75;
+          opacity: 0.65;
         }
       }
     }
