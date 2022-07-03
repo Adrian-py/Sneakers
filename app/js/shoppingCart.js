@@ -1,6 +1,7 @@
 const shoppingCartDOM = document.getElementById("shopping-cart-list"),
   shoppingCartEmpty = document.getElementById("shopping-cart-empty"),
-  checkoutButton = document.getElementById("shopping-cart-checkout");
+  checkoutButton = document.getElementById("shopping-cart-checkout"),
+  shoppingCartNotif = document.getElementById("shopping-cart-notifications");
 
 let shoppingCart = [];
 
@@ -12,7 +13,7 @@ function updateShoppingCartDOM() {
             <li class="nav__cart__popup__content__list__item">
                 <form id="cart__item">
                 <img
-                    src="${item.imageURL}"
+                    src="./images/image-product-1.jpg"
                     alt="Product Thumbnail"
                     class="nav__cart__popup__content__list__item__image"
                 />
@@ -66,10 +67,13 @@ function checkShoppingCart() {
     shoppingCartEmpty.style.display = "none";
     shoppingCartDOM.style.display = "flex";
     checkoutButton.style.display = "flex";
+    shoppingCartNotif.style.display = "flex";
+    shoppingCartNotif.innerHTML = shoppingCart.length;
   } else {
     shoppingCartEmpty.style.display = "block";
     shoppingCartDOM.style.display = "none";
     checkoutButton.style.display = "none";
+    shoppingCartNotif.style.display = "none";
   }
 }
 

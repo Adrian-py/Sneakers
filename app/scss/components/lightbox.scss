@@ -110,6 +110,7 @@
           transition: all 150ms ease-in-out;
           visibility: hidden;
           opacity: 0;
+          pointer-events: none;
           cursor: pointer;
         }
 

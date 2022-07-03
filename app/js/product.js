@@ -5,29 +5,60 @@ const currentProduct = {
   price: 125,
   amount: 0,
   totalPrice: 0,
-  imageURL: "",
 };
 
 // Product Images
 const productThumbnails = document.querySelectorAll(
     ".pictures__thumbnails__pic-container__pic"
   ),
-  currentProductImage = document.querySelector(".pictures__current"),
+  currentProductImage = document.getElementById("pictures__current"),
+  currentProductNextBtn = document.getElementById("pictures__current__next"),
+  currentProductPrevBtn = document.getElementById("pictures__current__prev"),
   chosenClassName = "pictures__thumbnails__pic-container__chosen";
 
-function changeProductImage(e) {
-  let newPic = e.target.getAttribute("data-picture");
+let currentImageIndex = 1;
+
+function changeMainImage(newCurrentImage) {
+  console.log(newCurrentImage.getAttribute("data-picture"));
+  currentProductImage.src = `./images/image-product-${newCurrentImage.getAttribute(
+    "data-picture"
+  )}.jpg`;
   document
     .getElementsByClassName(chosenClassName)[0]
     .classList.remove(chosenClassName);
-  e.target.classList.add(chosenClassName);
-  currentProductImage.src = `./images/image-product-${newPic}.jpg`;
-  currentProduct.imageURL = currentProductImage.src;
+  newCurrentImage.classList.add(chosenClassName);
+}
+
+function changeProductImage(e) {
+  currentImageIndex = e.target.getAttribute("data-picture");
+  changeMainImage(e.target);
+}
+
+function prevMainImage() {
+  currentImageIndex--;
+  if (currentImageIndex < 1) currentImageIndex = 4;
+  changeMainImage(
+    document.getElementById(
+      `pictures__thumbnails__pic-container__${currentImageIndex}`
+    )
+  );
+}
+
+function nextMainImage() {
+  currentImageIndex--;
+  if (currentImageIndex < 1) currentImageIndex = 4;
+  changeMainImage(
+    document.getElementById(
+      `pictures__thumbnails__pic-container__${currentImageIndex}`
+    )
+  );
 }
 
 productThumbnails.forEach((img) => {
   img.addEventListener("click", changeProductImage);
 });
+currentProductPrevBtn.addEventListener("click", prevMainImage);
+currentProductNextBtn.addEventListener("click", nextMainImage);
 
 // Product Amount
 const incAmount = document.getElementById("amount-inc"),
