@@ -1,4 +1,6 @@
-// Current Product
+/*
+JSON of the Currently Viewed Product
+*/
 const currentProduct = {
   id: 0,
   name: "Fall Limited Edition Sneakers",
@@ -7,7 +9,9 @@ const currentProduct = {
   totalPrice: 0,
 };
 
-// Product Images
+/*
+Changing main product image using the prev/next button(mobile only) or clicking one of the thumbnails
+*/
 const productThumbnails = document.querySelectorAll(
     ".pictures__thumbnails__pic-container__pic"
   ),
@@ -18,8 +22,7 @@ const productThumbnails = document.querySelectorAll(
 
 let currentImageIndex = 1;
 
-function changeMainImage(newCurrentImage) {
-  console.log(newCurrentImage.getAttribute("data-picture"));
+function changeToNewImage(newCurrentImage) {
   currentProductImage.src = `./images/image-product-${newCurrentImage.getAttribute(
     "data-picture"
   )}.jpg`;
@@ -31,13 +34,13 @@ function changeMainImage(newCurrentImage) {
 
 function changeProductImage(e) {
   currentImageIndex = e.target.getAttribute("data-picture");
-  changeMainImage(e.target);
+  changeToNewImage(e.target);
 }
 
 function prevMainImage() {
   currentImageIndex--;
   if (currentImageIndex < 1) currentImageIndex = 4;
-  changeMainImage(
+  changeToNewImage(
     document.getElementById(
       `pictures__thumbnails__pic-container__${currentImageIndex}`
     )
@@ -47,26 +50,31 @@ function prevMainImage() {
 function nextMainImage() {
   currentImageIndex--;
   if (currentImageIndex < 1) currentImageIndex = 4;
-  changeMainImage(
+  changeToNewImage(
     document.getElementById(
       `pictures__thumbnails__pic-container__${currentImageIndex}`
     )
   );
 }
 
+// Event listener for each thumbnail
 productThumbnails.forEach((img) => {
   img.addEventListener("click", changeProductImage);
 });
+
 currentProductPrevBtn.addEventListener("click", prevMainImage);
 currentProductNextBtn.addEventListener("click", nextMainImage);
 
-// Product Amount
+/*
+Increase or decrease the amount of the current product
+*/
 const incAmount = document.getElementById("amount-inc"),
   decAmount = document.getElementById("amount-dec"),
   amountDOM = document.getElementById("amount-curr");
 
 let currAmount = 0;
 
+// Updating the DOM and current product JSON
 function updateAmount() {
   currentProduct.amount = currAmount;
   amountDOM.innerHTML = currAmount;
@@ -89,12 +97,15 @@ function decreaseAmount() {
 incAmount.addEventListener("click", increaseAmount);
 decAmount.addEventListener("click", decreaseAmount);
 
-// Add to Cart
+/*
+Adding current product to shopping cart
+*/
 const addToCartButton = document.getElementById("add-to-cart-button");
 
 addToCartButton.addEventListener("click", (e) => {
   e.preventDefault();
   currentProduct.imageURL = currentProductImage.src;
+  // Calling function on shoppingCart.js for insertion to shopping cart
   addToShoppingCart(currentProduct);
   alert("Added to Cart!");
 });

@@ -1,3 +1,6 @@
+/*
+  Opening and Closing of Navbar Links on Mobile Screens
+*/
 const menuButton = document.getElementById("nav-menu"),
   navLinks = document.getElementById("nav-links"),
   navClose = document.getElementById("nav-close"),

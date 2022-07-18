@@ -1,10 +1,15 @@
+/*
+
+*/
 const shoppingCartDOM = document.getElementById("shopping-cart-list"),
   shoppingCartEmpty = document.getElementById("shopping-cart-empty"),
   checkoutButton = document.getElementById("shopping-cart-checkout"),
   shoppingCartNotif = document.getElementById("shopping-cart-notifications");
 
+// Current shopping cart (simulating real database)
 let shoppingCart = [];
 
+// Updating the shopping cart list
 function updateShoppingCartDOM() {
   shoppingCartDOM.innerHTML = "";
   shoppingCart.forEach((item) => {
@@ -55,13 +60,7 @@ function updateShoppingCartDOM() {
   checkShoppingCart();
 }
 
-function addToShoppingCart(newItem) {
-  newItem.id = shoppingCart.length + 1;
-  newItem.totalPrice = newItem.price * newItem.amount;
-  shoppingCart.push(JSON.stringify(newItem));
-  updateShoppingCartDOM();
-}
-
+// Checking whether the shopping cart is empty
 function checkShoppingCart() {
   if (shoppingCart.length != 0) {
     shoppingCartEmpty.style.display = "none";
@@ -75,6 +74,14 @@ function checkShoppingCart() {
     checkoutButton.style.display = "none";
     shoppingCartNotif.style.display = "none";
   }
+}
+
+function addToShoppingCart(newItem) {
+  newItem.id = shoppingCart.length + 1;
+  newItem.totalPrice = newItem.price * newItem.amount;
+  // Changing the JSON to string format to push to the array
+  shoppingCart.push(JSON.stringify(newItem));
+  updateShoppingCartDOM();
 }
 
 function removeFromShoppingCart(removedItem) {
