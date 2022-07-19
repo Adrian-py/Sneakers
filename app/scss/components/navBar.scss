@@ -30,6 +30,11 @@ nav {
 
     @include breakpoint(tablet) {
       display: block;
+      height: 60%;
+    }
+
+    @include breakpoint(phone) {
+      height: auto;
     }
   }
 
@@ -199,7 +204,13 @@ nav {
       align-items: center;
 
       @include breakpoint(tablet) {
-        width: 1.15rem;
+        width: 1.5rem;
+        height: 1.15rem;
+        font-size: 0.8rem;
+      }
+
+      @include breakpoint(phone) {
+        width: 1rem;
         height: 0.7rem;
         font-size: 0.55rem;
         border-radius: 35%;

@@ -106,6 +106,10 @@ addToCartButton.addEventListener("click", (e) => {
   e.preventDefault();
   currentProduct.imageURL = currentProductImage.src;
   // Calling function on shoppingCart.js for insertion to shopping cart
+  if (currentProduct.amount === 0) {
+    alert("Amount can't be zero!");
+    return;
+  }
   addToShoppingCart(currentProduct);
   alert("Added to Cart!");
 });

@@ -31,6 +31,12 @@ nav {
 @media only screen and (max-width: 48em) {
   .nav-left-m__menu {
     display: block;
+    height: 60%;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .nav-left-m__menu {
+    height: auto;
   }
 }
 .nav-left__title {
@@ -199,7 +205,14 @@ nav {
 }
 @media only screen and (max-width: 48em) {
   .nav__cart__button__notifications {
-    width: 1.15rem;
+    width: 1.5rem;
+    height: 1.15rem;
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .nav__cart__button__notifications {
+    width: 1rem;
     height: 0.7rem;
     font-size: 0.55rem;
     border-radius: 35%;
@@ -263,6 +276,16 @@ nav {
 .nav__cart__popup__title h2 {
   font-size: 1rem;
 }
+@media only screen and (max-width: 48em) {
+  .nav__cart__popup__title h2 {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .nav__cart__popup__title h2 {
+    font-size: 1rem;
+  }
+}
 .nav__cart__popup__content {
   min-height: 22vh;
   padding: 2vh 6% 4vh 6%;
@@ -276,6 +299,16 @@ nav {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--grayBlue);
+}
+@media only screen and (max-width: 48em) {
+  .nav__cart__popup__content__empty {
+    font-size: 1.15rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .nav__cart__popup__content__empty {
+    font-size: 0.9rem;
+  }
 }
 .nav__cart__popup__content__list {
   width: 100%;
@@ -362,6 +395,11 @@ main {
   justify-content: space-evenly;
   align-items: center;
 }
+@media only screen and (min-width: 120em) {
+  main {
+    height: 65vh;
+  }
+}
 @media only screen and (max-width: 48em) {
   main {
     height: auto;
@@ -378,6 +416,11 @@ main {
   flex-direction: column;
   gap: 2.5vh;
 }
+@media only screen and (min-width: 120em) {
+  .pictures {
+    width: 35%;
+  }
+}
 @media only screen and (max-width: 48em) {
   .pictures {
     width: 100%;
@@ -386,11 +429,19 @@ main {
 .pictures__current {
   position: relative;
   width: 100%;
+  height: 75%;
+}
+@media only screen and (max-width: 48em) {
+  .pictures__current {
+    height: 100%;
+  }
 }
 .pictures__current__image {
-  border-radius: 10px;
   width: 100%;
+  height: 100%;
+  border-radius: 10px;
   cursor: pointer;
+  object-fit: cover;
 }
 @media only screen and (max-width: 48em) {
   .pictures__current__image {
@@ -408,7 +459,7 @@ main {
     position: absolute;
     top: 50%;
     width: 10vw;
-    transform: tranlateY(-50%);
+    transform: translateY(-50%);
     aspect-ratio: 1/1;
     outline: none;
     border: none;
@@ -441,13 +492,16 @@ main {
 }
 .pictures__thumbnails__pic-container {
   width: 20%;
+  height: 100%;
   cursor: pointer;
 }
 .pictures__thumbnails__pic-container__pic {
   width: 100%;
+  height: 100%;
   border: 3px solid transparent;
   border-radius: 10px;
   transition: all 150ms ease-in-out;
+  object-fit: cover;
 }
 .pictures__thumbnails__pic-container__pic:hover {
   opacity: 0.6;
@@ -473,7 +527,18 @@ main {
   font-size: 0.75rem;
   color: var(--orange);
 }
+@media only screen and (min-width: 120em) {
+  .product__name__company {
+    font-size: 1.25rem;
+  }
+}
 @media only screen and (max-width: 48em) {
+  .product__name__company {
+    margin-bottom: 1vh;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
   .product__name__company {
     margin-bottom: 2vh;
     font-size: 0.8rem;
@@ -482,7 +547,17 @@ main {
 .product__name__title {
   font-size: 2.25rem;
 }
+@media only screen and (min-width: 120em) {
+  .product__name__title {
+    font-size: 3rem;
+  }
+}
 @media only screen and (max-width: 48em) {
+  .product__name__title {
+    font-size: 3.25rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
   .product__name__title {
     font-size: 1.75rem;
   }
@@ -492,9 +567,20 @@ main {
   font-size: 0.9rem;
   color: var(--grayBlue);
 }
+@media only screen and (min-width: 120em) {
+  .product__desc {
+    font-size: 1.25rem;
+  }
+}
 @media only screen and (max-width: 48em) {
   .product__desc {
     margin-bottom: 4vh;
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .product__desc {
+    font-size: 0.9rem;
     line-height: 4vh;
   }
 }
@@ -522,10 +608,20 @@ main {
   font-size: 1.5rem;
   font-weight: 700;
 }
+@media only screen and (min-width: 120em) {
+  .product__prices__current {
+    font-size: 1.75rem;
+  }
+}
 @media only screen and (max-width: 48em) {
   .product__prices__current {
-    gap: 3.5vw;
+    gap: 4vw;
     font-size: 1.75rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .product__prices__current {
+    gap: 3.5vw;
   }
 }
 .product__prices__current__discount {
@@ -535,13 +631,38 @@ main {
   background: rgba(255, 125, 26, 0.15);
   color: var(--orange);
 }
+@media only screen and (min-width: 120em) {
+  .product__prices__current__discount {
+    font-size: 1.15rem;
+  }
+}
+@media only screen and (max-width: 48em) {
+  .product__prices__current__discount {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .product__prices__current__discount {
+    font-size: 0.9rem;
+  }
+}
 .product__prices__old {
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: line-through;
   color: var(--lightBlue);
 }
+@media only screen and (min-width: 120em) {
+  .product__prices__old {
+    font-size: 1.25rem;
+  }
+}
 @media only screen and (max-width: 48em) {
+  .product__prices__old {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
   .product__prices__old {
     font-size: 1rem;
   }
@@ -578,6 +699,21 @@ main {
 .product__add__amount__current {
   font-weight: 700;
 }
+@media only screen and (min-width: 120em) {
+  .product__add__amount__current {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (max-width: 48em) {
+  .product__add__amount__current {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .product__add__amount__current {
+    font-size: 1rem;
+  }
+}
 .product__add__amount__button {
   width: 25%;
   height: 100%;
@@ -590,6 +726,11 @@ main {
   color: var(--orange);
   cursor: pointer;
   transition: all 150ms ease-in-out;
+}
+@media only screen and (min-width: 120em) {
+  .product__add__amount__button {
+    font-size: 1.75rem;
+  }
 }
 .product__add__amount__button:hover {
   opacity: 0.65;
@@ -612,10 +753,20 @@ main {
   box-shadow: 0px 25px 70px -10px rgba(255, 125, 26, 0.48);
   transition: all 125ms ease-in-out;
 }
+@media only screen and (min-width: 120em) {
+  .product__add__button {
+    font-size: 1.5rem;
+  }
+}
 @media only screen and (max-width: 48em) {
   .product__add__button {
     width: 100%;
     height: 9vh;
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 23.4375em) {
+  .product__add__button {
     font-size: 1.025rem;
   }
 }

@@ -8,6 +8,10 @@ main {
   justify-content: space-evenly;
   align-items: center;
 
+  @include breakpoint-up(LDesktop) {
+    height: 65vh;
+  }
+
   @include breakpoint(tablet) {
     height: auto;
     justify-content: flex-start;
@@ -23,6 +27,10 @@ main {
   flex-direction: column;
   gap: 2.5vh;
 
+  @include breakpoint-up(LDesktop) {
+    width: 35%;
+  }
+
   @include breakpoint(tablet) {
     width: 100%;
   }
@@ -30,11 +38,18 @@ main {
   &__current {
     position: relative;
     width: 100%;
+    height: 75%;
+
+    @include breakpoint(tablet) {
+      height: 100%;
+    }
 
     &__image {
-      border-radius: 10px;
       width: 100%;
+      height: 100%;
+      border-radius: 10px;
       cursor: pointer;
+      object-fit: cover;
 
       @include breakpoint(tablet) {
         height: 45vh;
@@ -51,7 +66,7 @@ main {
         position: absolute;
         top: 50%;
         width: 10vw;
-        transform: tranlateY(-50%);
+        transform: translateY(-50%);
         aspect-ratio: 1/1;
         outline: none;
         border: none;
@@ -88,13 +103,16 @@ main {
 
     &__pic-container {
       width: 20%;
+      height: 100%;
       cursor: pointer;
 
       &__pic {
         width: 100%;
+        height: 100%;
         border: 3px solid transparent;
         border-radius: 10px;
         transition: all 150ms ease-in-out;
+        object-fit: cover;
 
         &:hover {
           opacity: 0.6;
@@ -124,7 +142,16 @@ main {
       font-size: 0.75rem;
       color: var(--orange);
 
+      @include breakpoint-up(LDesktop) {
+        font-size: 1.25rem;
+      }
+
       @include breakpoint(tablet) {
+        margin-bottom: 1vh;
+        font-size: 1.25rem;
+      }
+
+      @include breakpoint(phone) {
         margin-bottom: 2vh;
         font-size: 0.8rem;
       }
@@ -133,7 +160,15 @@ main {
     &__title {
       font-size: 2.25rem;
 
+      @include breakpoint-up(LDesktop) {
+        font-size: 3rem;
+      }
+
       @include breakpoint(tablet) {
+        font-size: 3.25rem;
+      }
+
+      @include breakpoint(phone) {
         font-size: 1.75rem;
       }
     }
@@ -144,8 +179,17 @@ main {
     font-size: 0.9rem;
     color: var(--grayBlue);
 
+    @include breakpoint-up(LDesktop) {
+      font-size: 1.25rem;
+    }
+
     @include breakpoint(tablet) {
       margin-bottom: 4vh;
+      font-size: 1.25rem;
+    }
+
+    @include breakpoint(phone) {
+      font-size: 0.9rem;
       line-height: 4vh;
     }
   }
@@ -173,9 +217,17 @@ main {
       font-size: 1.5rem;
       font-weight: 700;
 
-      @include breakpoint(tablet) {
-        gap: 3.5vw;
+      @include breakpoint-up(LDesktop) {
         font-size: 1.75rem;
+      }
+
+      @include breakpoint(tablet) {
+        gap: 4vw;
+        font-size: 1.75rem;
+      }
+
+      @include breakpoint(phone) {
+        gap: 3.5vw;
       }
 
       &__discount {
@@ -184,6 +236,18 @@ main {
         font-size: 0.9rem;
         background: hsl(26, 100%, 55%, 0.15);
         color: var(--orange);
+
+        @include breakpoint-up(LDesktop) {
+          font-size: 1.15rem;
+        }
+
+        @include breakpoint(tablet) {
+          font-size: 1.25rem;
+        }
+
+        @include breakpoint(phone) {
+          font-size: 0.9rem;
+        }
       }
     }
 
@@ -193,7 +257,15 @@ main {
       text-decoration: line-through;
       color: var(--lightBlue);
 
+      @include breakpoint-up(LDesktop) {
+        font-size: 1.25rem;
+      }
+
       @include breakpoint(tablet) {
+        font-size: 1.25rem;
+      }
+
+      @include breakpoint(phone) {
         font-size: 1rem;
       }
     }
@@ -228,6 +300,18 @@ main {
 
       &__current {
         font-weight: 700;
+
+        @include breakpoint-up(LDesktop) {
+          font-size: 1.25rem;
+        }
+
+        @include breakpoint(tablet) {
+          font-size: 1.5rem;
+        }
+
+        @include breakpoint(phone) {
+          font-size: 1rem;
+        }
       }
 
       &__button {
@@ -242,6 +326,10 @@ main {
         color: var(--orange);
         cursor: pointer;
         transition: all 150ms ease-in-out;
+
+        @include breakpoint-up(LDesktop) {
+          font-size: 1.75rem;
+        }
 
         &:hover {
           opacity: 0.65;
@@ -267,9 +355,17 @@ main {
       box-shadow: 0px 25px 70px -10px rgba(255, 125, 26, 0.48);
       transition: all 125ms ease-in-out;
 
+      @include breakpoint-up(LDesktop) {
+        font-size: 1.5rem;
+      }
+
       @include breakpoint(tablet) {
         width: 100%;
         height: 9vh;
+        font-size: 1.5rem;
+      }
+
+      @include breakpoint(phone) {
         font-size: 1.025rem;
       }
 
