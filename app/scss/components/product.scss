@@ -140,6 +140,7 @@ main {
 
     &__company {
       font-size: 0.75rem;
+      font-weight: 700;
       color: var(--orange);
 
       @include breakpoint-up(LDesktop) {
