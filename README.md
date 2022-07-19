@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Sneakers Github Repository](https://github.com/Adrian-py/Sneakers)
+- Live Site URL: [Sneakers Site](https://adrian-py.github.io/Sneakers/)
 
 ## My process
 
